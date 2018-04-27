@@ -1,0 +1,89 @@
+body{
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 3px;
+    font-size: 20px;
+    
+}
+
+.container{
+    width: 100%;
+    top: 0;
+    position: fixed;
+    background-color: #631010;
+    overflow: hidden;
+    margin: 0 auto;
+    
+    text-transform: uppercase;
+}
+
+.nav{
+    height: 170px;
+    overflow: hidden;
+    
+}
+
+
+.nav ul{
+    margin: 2% 8% 0 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+button{
+    background: transparent; 
+    color: white;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 0;
+    position: relative;
+    border: none;
+}
+
+
+.nav li{
+    float: right;
+    display: inline-block;
+    margin-left: 50px;
+    margin-bottom: 20px;
+    margin-top: 50px;
+/*
+    padding: 6px 20px 6px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+*/
+/*    margin: 5% 3%;*/
+    position: relative;
+    
+}
+
+.nav ul button{
+    padding: 6px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: white;
+    color: #631010;
+    margin: 0;
+    display: inline-block;
+}
+.nav ul a{
+    color: white;
+    padding: 6px 20px;
+    border: 1px solid white;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    color: #631010;
+    background-color: rgba(255,255,255);
+
+}
+
+
+.nav button:hover {
+    color: rgba(99,16,16);
+/*    background-color: rgba(99,16,16, 0.3);*/
+
+}
