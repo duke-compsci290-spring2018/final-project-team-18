@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <header>
+        
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="profile.js" async></script>
+        <title></title>
+    </header>
+    
+    <body>
+        <div id=app>
+            <h1>{{title}}</h1>
+        <div class=row>
+            <div class="col-sm-4 col-md-3 col-lg-2" v-for="profile in profiles">
+                <div class=thumbnail>
+                    <img src="cat.jpg">
+                    <div class=caption>
+                    <h3>{{profile.name}}</h3>
+                    <p>{{profile.major}}</p>
+                    <p>{{profile.class}}</p>
+                    <p>{{profile.description}}</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        </div>
+    
+    
+    
+    </body>
+
+</html>
