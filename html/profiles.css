@@ -1,0 +1,8 @@
+.user-modal-container.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.user-modal-container {
+    background-color: peachpuff;
+}

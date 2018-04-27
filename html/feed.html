@@ -3,14 +3,19 @@
 <html lang=en>
     
     <head>
+        <meta charset="utf-8">
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-        <script src=feed.js async></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <link rel="stylesheet" href="main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+        <script src=feed.js async></script>
+        <title>CS@Dook</title>
+=======
         <meta charset="utf-8">
         <title>Feed</title>
+>>>>>>> 4ff08d5ee61ce5e6fe80c6ea1a49ebacfb6c21c9
     </head>
     
     <body>
@@ -21,40 +26,52 @@
         <div id=feed>
             <div class=blog-container>
             <h2>{{ title }}</h2>
-                <hr>
+            
+                <!--button to add new post-->
                 <button type=button class="btn btn-primary" data-toggle=modal data-target=#addNewPost>+ New Post</button>
+                
                 <!--ADD POST -->
                 <div id=addNewPost class="modal fade" role=dialog>
                     <div class=modal-dialog>
+                        
                         <!--add post content -->
                         <div class=modal-content>
                             <div class=modal-header>
                                 <button type=button class=close data-dismiss=modal>&times;</button>
                                     <h4 class=modal-title>Add New Post</h4>
                             </div>
+                            
+                            <!--what goes into modal-->
                             <div class=modal-body>
                                 <div class=form-group>
                                     <label for=title>Title:</label>
-                                    <input type=title class=form-control id=title v-model=newPost.title>
+                                    <input type=title class=form-control id=title v-model=newPost.title placeholder="Type here">
                                 </div>
-                                <div class = form-group>
+                                <div class=form-group>
                                     <label for=body>Content:</label>
-                                    <textarea class=form-control rows=5 id=body v-model=newPost.body></textarea>
+                                    <textarea class=form-control rows=5 id=body v-model=newPost.body placeholder="Type here"></textarea>
                                 </div>
                             </div>
                             <div class=modal-footer>
                                 <button type=button class="btn btn-default" data-dismiss=modal v-on:click=AddPost()>Add</button>
                             </div>
                         </div>
+                        
                     </div>
-                </div>
-                              
+                </div> 
+            
+                
+            <!-- display each post -->               
             <div class=row>
                 <div class ="col-sm-6 col-md-4" v-for="post in posts">
-                    <h3>{{post.title}}</h3>
-                    <p>{{post.body}}</p>
-                <a href=# class="btn btn-danger" role=button v-on:click="deletePost (post)">Delete</a>
-            </div>
+                    <div class=thumbnail>
+                        <div class=caption>
+                        <h3>{{post.title}}</h3>
+                        <p>{{post.body}}</p>
+                        <a href=# class="btn btn-danger" role=button v-on:click="deletePost (post)">Delete</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             </div>
         </div>

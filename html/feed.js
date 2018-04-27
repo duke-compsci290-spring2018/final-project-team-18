@@ -37,4 +37,4 @@ var app = new Vue({
             this.newPost = {}
         }
     }
-})
+}).$mount('#feed')
