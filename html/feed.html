@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang=en>
+    
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+        <script src=feed.js async></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <meta charset="utf-8">
+        <title>CS@Dook</title>
+    </head>
+    
+    <body>
+        <div id=feed>
+            <div class=blog-container>
+            <h2>{{ title }}</h2>
+                <hr>
+                <button type=button class="btn btn-primary" data-toggle=modal data-target=#addNewPost>+ New Post</button>
+                <!--ADD POST -->
+                <div id=addNewPost class="modal fade" role=dialog>
+                    <div class=modal-dialog>
+                        <!--add post content -->
+                        <div class=modal-content>
+                            <div class=modal-header>
+                                <button type=button class=close data-dismiss=modal>&times;</button>
+                                    <h4 class=modal-title>Add New Post</h4>
+                            </div>
+                            <div class=modal-body>
+                                <div class=form-group>
+                                    <label for=title>Title:</label>
+                                    <input type=title class=form-control id=title v-model=newPost.title>
+                                </div>
+                                <div class = form-group>
+                                    <label for=body>Content:</label>
+                                    <textarea class=form-control rows=5 id=body v-model=newPost.body></textarea>
+                                </div>
+                            </div>
+                            <div class=modal-footer>
+                                <button type=button class="btn btn-default" data-dismiss=modal v-on:click=AddPost()>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                              
+            <div class=row>
+                <div class ="col-sm-6 col-md-4" v-for="post in posts">
+                    <h3>{{post.title}}</h3>
+                    <p>{{post.body}}</p>
+                <a href=# class="btn btn-danger" role=button v-on:click="deletePost (post)">Delete</a>
+            </div>
+            </div>
+            </div>
+        </div>
+    
+    </body>
+</html>
