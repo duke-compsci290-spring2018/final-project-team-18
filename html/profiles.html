@@ -11,16 +11,9 @@
     </header>
     
     <body>
+        
        <div id=app>
-           <a href="#register" v-on:click= "open('register', $event)">Register</a>
-           <a href="#login" v-on:click= "open('login', $event)">Login</a>
-           <div class=user-modal-container id=login-modal v-on:click = close></div>
-        
-        
-        
-        
 
-       
         <h1>{{title}}</h1>
         <div class=row>
             <div class="col-sm-4 col-md-3 col-lg-2" v-for="profile in profiles">
@@ -42,5 +35,19 @@
     
     
     </body>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyC9RC6Rr_FJUBiisDPTuwIC_gwOpBHgHLc",
+    authDomain: "duke-latinx.firebaseapp.com",
+    databaseURL: "https://duke-latinx.firebaseio.com",
+    projectId: "duke-latinx",
+    storageBucket: "duke-latinx.appspot.com",
+    messagingSenderId: "373999370996"
+    };
+    firebase.initializeApp(config);
+    </script>
 
 </html>

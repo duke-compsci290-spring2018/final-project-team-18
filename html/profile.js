@@ -20,24 +20,13 @@ var app = new Vue({
             'class': '2019',
             'description': 'hello'
         }]
-    },
-    methods: {
-        open: function(which, e) { //function to open the modal for login
-            e.preventDefault();
-            $('#login-modal').addClass('active'); //add active class to show that modal is open or not
-        }
     }
 })
 
-var modal = new Vue ({
-    el: '#login-modal',
-    methods: {
-        close: function(e) {
-            e.preventDefault();
-            if (e.target === this.$el) {
-                $('#login-modal').removeClass('active'); 
-            }
-            
-        }
+var modal = document.getElementById('id01');
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
     }
-})
+}
