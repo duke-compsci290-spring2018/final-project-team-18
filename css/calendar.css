@@ -12,14 +12,14 @@ body{
     background-color: #631010;
     overflow: hidden;
     margin: 0 auto;
-    
     text-transform: uppercase;
+    z-index: 150;
 }
 
 .nav{
     height: 170px;
     overflow: hidden;
-    
+    z-index:999;
 }
 
 
@@ -28,9 +28,10 @@ body{
     padding: 0;
     list-style: none;
     text-decoration: none;
+    
 }
 
-button{
+.nav button{
     background: transparent; 
     color: white;
     text-transform: uppercase;
@@ -73,6 +74,7 @@ button{
     border-radius: 10px;
     display: inline-block;
     text-decoration: none;
+    
 }
 
 .nav li a:hover {
@@ -87,3 +89,20 @@ button{
 /*    background-color: rgba(99,16,16, 0.3);*/
 
 }
+
+#space{
+
+    margin-top: 200px; 
+}
+    
+#request{
+    margin-top: 200px; 
+}
+
+#display{
+    color: black;
+    height: 500px;
+    width: 500px;
+}
+
+

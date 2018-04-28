@@ -82,7 +82,7 @@ button{
 }
 
 
-.nav button:hover {
+.nav li button:hover {
     color: rgba(99,16,16);
 /*    background-color: rgba(99,16,16, 0.3);*/
 
