@@ -5,12 +5,42 @@
         
         <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel=stylesheet href="profiles.css">
         <script src="profile.js" async></script>
         <title></title>
     </header>
     
     <body>
+        <div id=login>
+            <button type=button class="btn btn-primary" data-toggle=modal data-target=#myModal>Login or Sign Up</button>
+            
+            <div id=myModal class="modal fade" role=dialog>
+                <div class=modal-dialog>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal>&times;</button>
+                            <h4 class=modal-title>Login or Sign Up</h4>
+                        </div>
+                        <div class=modal-body>
+                            <form>
+                                Username:<br>
+                                <input type=text placeholder="user123" name=user><br>
+                                Password:<br>
+                                <input type=text placeholder="password123" name=psw>
+                            </form>
+                            <br>
+                            Don't have an account? Sign up <a href=# >here.</a>
+                        </div>
+                        <div class=modal-footer>
+                            <button type=submit class='btn btn-success'>Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
         
        <div id=app>
 
@@ -24,6 +54,7 @@
                     <p>{{profile.major}}</p>
                     <p>{{profile.class}}</p>
                     <p>{{profile.description}}</p>
+                    <p>Contact me at: {{profile.email}}</p>
                     </div>
                 </div>
             </div>
