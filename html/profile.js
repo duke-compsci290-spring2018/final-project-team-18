@@ -1,3 +1,19 @@
+firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // ...
+});
+
+
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -6,27 +22,26 @@ var app = new Vue({
             'name': "Judyth Estrada",
             'major': 'Computer Science',
             'class': '2020',
-            'description': 'hello'
+            'description': 'hello',
+            'email': 'something@duke.edu',
+            'img': ''
         },
         {
             'name': 'Dania Estrada',
             'major': 'Computer Science',
             'class': '2019',
-            'description': 'hello'
+            'description': 'hello',
+            'email': 'something@duke.edu',
+            'img': ''
         },
         {
             'name': 'Alejandra Aguilar',
             'major': 'idk',
             'class': '2019',
-            'description': 'hello'
+            'description': 'hello',
+            'email': 'something@duke.edu',
+            'img': ''
         }]
     }
 })
 
-var modal = document.getElementById('id01');
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = 'none';
-    }
-}

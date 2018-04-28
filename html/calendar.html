@@ -20,7 +20,34 @@
         <div class="container">
         <div class="nav">
             <ul>  
-                <li><button id="button" type="button">Log In</button></li>  
+                <div id=login>
+            <button type=button class="btn btn-primary" data-toggle=modal data-target=#myModal>Login or Sign Up</button>
+            
+            <div id=myModal class="modal fade" role=dialog>
+                <div class=modal-dialog>
+                    <div class=modal-content>
+                        <div class=modal-header>
+                            <button type=button class=close data-dismiss=modal>&times;</button>
+                            <h4 class=modal-title>Login or Sign Up</h4>
+                        </div>
+                        <div class=modal-body>
+                            <form>
+                                Username:<br>
+                                <input type=text placeholder="user123" name=user><br>
+                                Password:<br>
+                                <input type=text placeholder="password123" name=psw>
+                            </form>
+                            <br>
+                            Don't have an account? Sign up <a href=# >here.</a>
+                        </div>
+                        <div class=modal-footer>
+                            <button type=submit class='btn btn-success'>Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div></li>  
                 <li><a href="feed.html">FEED</a></li>
                 <li><a href="calendar.html">Calendar</a></li> 
             </ul>
