@@ -7,6 +7,21 @@
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vuefire/1.4.5/vuefire.js"></script>
+        
+        
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-functions.js"></script>
+        
+    
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../css/main.css">
@@ -17,16 +32,52 @@
     
     <body>
         
-        <div class="container">
-        <div class="nav">
-            <ul>  
-                <li><button id="button" type="button">Log In</button></li>  
+    <div class="container">
+    <div class="nav">
+        <ul>  
+            <li>
+                <div class="row unauthenticated">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal"> Log In</button>
+                <ul id="contacts" class="list-group"/>   
+                </div>
+            </li>  
                 <li><a href="../html/feed.html">FEED</a></li>
                 <li><a href="../html/calendar.html">Calendar</a></li> 
             </ul>
         </div>
         </div>
+        
+        
+
     
+        
+  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Log In" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form method="post" name="loginForm">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="loginModalLabel">Log In</h4>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" required placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" required placeholder="Enter Email">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary addValue" onclick="create()">Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+        
+<div id="app"></div>
     
     </body>
 </html>

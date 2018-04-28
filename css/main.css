@@ -87,6 +87,16 @@ button{
 /*    background-color: rgba(99,16,16, 0.3);*/
 
 }
+
+.popup {
+    position: absolute;
+    padding: 15px;
+    width: 350px;
+    height: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,0%);
+}
 /*
 .nav a::before {
     content: '';
