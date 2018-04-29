@@ -26,7 +26,13 @@ export default {
       firebase.auth().signOut().then(() => {
         <router-link class= "link" to="/login">Home</router-link>
       })
-    }
+    },
+    getUser () {
+            return this.user
+        },
+        setUser (user) {
+            this.user = user
+        }
   }
 }
 </script>

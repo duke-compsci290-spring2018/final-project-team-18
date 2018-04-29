@@ -16,6 +16,14 @@ import firebaseUI from 'firebaseui'
 import {config} from '../db';
 export default {
   name: 'Login',
+  data () {
+        return {
+            // state for vue-images component, must be established BEFORE component is rendered
+            email: '',
+            // useful data about the current user
+            password: ''
+        }
+    },
   methods: {
   
    signIn (user) {

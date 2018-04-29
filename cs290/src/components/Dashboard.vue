@@ -5,7 +5,7 @@
   <router-link class= "link" to="/home">Home</router-link>
     <router-link class="link" to="/dashboard" >Dashboard</router-link>
     <router-link class="link" to="/profiles">Profiles</router-link>
-    <router-link class="link" to="/myaccount">My Account</router-link>
+    
     <button  v-on:click="logout">Logout</button>
     
 </div>
