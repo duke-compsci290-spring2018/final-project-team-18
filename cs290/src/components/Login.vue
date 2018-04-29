@@ -2,6 +2,7 @@
   <div id="bg">
     <div id="bgq"></div>
   <div id="firebaseui-auth-container"></div>
+ 
 </div>
 </template>
 
@@ -11,6 +12,32 @@ import firebaseUI from 'firebaseui'
 import {config} from '../db';
 export default {
   name: 'Login',
+  // methods provided to change value of user in parent component
+    props: [
+        'getUser',
+        'setUser'
+    ],
+    // let HTML template access user as if it were a variable in this component
+    computed: {
+        user () {
+            return this.getUser()
+        }
+    },
+  methods: {
+  
+   signIn (user) {
+            this.setUser({
+                name: user.displayName,
+                email: user.email,
+                uid: user.uid,
+                isAnonymous: user.isAnonymous
+            })
+        },
+        signOut () {
+            firebase.auth().signOut()
+            this.setUser(null)
+        }
+  },
   mounted() {
     var uiConfig = {
     // require password each time
@@ -24,6 +51,11 @@ export default {
    };
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#firebaseui-auth-container', uiConfig);
+    firebase.auth().onAuthStateChanged(authState => {
+            if (authState) {
+                this.signIn(authState)
+            }
+        })
 
                  
     },

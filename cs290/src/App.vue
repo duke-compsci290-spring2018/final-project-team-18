@@ -1,15 +1,37 @@
 <template>
   <div id="app">
-   
-   <router-view></router-view>
+    <router-link class= "link" to="/home">Home</router-link>
+    <router-link class="link" to="/dashboard" >Dashboard</router-link>
+    <router-link class="link" to="/profiles">Profiles</router-link>
+    <router-link class="link" to="/myaccount">My Account</router-link>
+    <button v-on:click="logout">Logout</button>    
+    <router-view/>
   </div>
 </template>
 
 <script>
 
+import firebase from 'firebase';
 
 export default {
   name: 'app',
+ data () {
+        return {
+            // state for vue-images component, must be established BEFORE component is rendered
+            images: [],
+            // useful data about the current user
+            user: null
+        }
+    },
+  methods: {
+   
+   
+         logout: function() {
+      firebase.auth().signOut().then(() => {
+        <router-link class= "link" to="/login">Home</router-link>
+      })
+    }
+  }
 }
 </script>
 

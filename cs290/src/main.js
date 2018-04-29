@@ -9,6 +9,7 @@ import VueRouter from 'vue-router'
 import firebase from 'firebase'
 import firebaseui from 'firebaseui';
 
+
 import {config} from './db'
 //import Login from './Login'
 Vue.use(VueRouter)
