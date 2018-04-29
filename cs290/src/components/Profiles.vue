@@ -18,13 +18,21 @@
 </template>
 
 <script>
+import firebase from 'firebase';
     export default {
         name: "Profiles",
         data () {
           return {
             title: "Get Advice and Tips from Others!"
           }
-        }
+        },
+         methods: {
+          logout: function() {
+            firebase.auth().signOut().then(() => {
+              this.$router.replace('login')
+            })
+          }
+      }
     }
 </script>
 

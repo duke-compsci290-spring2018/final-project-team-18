@@ -32,13 +32,22 @@
 </template>
 
 <script>
+import firebase from 'firebase';
   export default {
     name: "Dashboard",
     data () {
       return {
         title: "Welcome to your feed!"
       }
-    }
+    },
+     methods: {
+          logout: function() {
+            firebase.auth().signOut().then(() => {
+              this.$router.replace('login')
+            })
+          }
+      }
+      
     }
 </script>
 
