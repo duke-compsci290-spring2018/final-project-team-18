@@ -5,6 +5,7 @@
     <router-link class="link" to="/profiles">Profiles</router-link>
     <router-link class="link" to="/myaccount">My Account</router-link>
     <button v-on:click="logout">Logout</button>    
+    <router-link class="link" to="/signup">Signup</router-link>
     <router-view/>
   </div>
 </template>
