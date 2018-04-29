@@ -3,10 +3,7 @@
     <div id="bgq"></div>
     <div id="bx">
   <div id="firebaseui-auth-container"></div>
-  OR
-  <div id="rturn">
-  <span id="sup"> <router-link to="/signup">Sign Up</router-link></span>
-  </div>
+ 
   </div>
 </div>
 </template>
@@ -66,7 +63,7 @@ export default {
     margin-top: -100px;
     position: fixed;
     top: 50%;
-    padding: 15px 60px;
+    padding: 30px 30px;
     border-radius: 50px;
     box-shadow: 0px 0px 25px 3px rgba(255,255,255,0.6);
     color: white;
@@ -95,8 +92,9 @@ html{
     left: 0;
 }
 input{
-width: 200px;
+width: 170px;
 }
+
 #sup {
     color: white;
     background-color: white;
@@ -109,17 +107,10 @@ width: 200px;
     margin: 5% 0;
     
 }
-#home{
-    text-align: center;
-    margin: 0 40% ;
-    margin-top: -100px;
-    position: fixed;
-    top: 50%;
-    padding: 15px 60px;
-    border-radius: 50px;
-    box-shadow: 0px 0px 25px 3px rgba(255,255,255,0.6);
-    color: white;
-} 
+#firebaseui-auth-container label {
+    display: block;
+    margin: 0 0 10px 0; /* Set the bottom margin to whatever you want */
+}
 
 a{
     text-decoration: none;
