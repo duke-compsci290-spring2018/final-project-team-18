@@ -1,8 +1,13 @@
 <template lang="html">
   <div id="bg">
     <div id="bgq"></div>
+    <div id="bx">
   <div id="firebaseui-auth-container"></div>
-  
+  OR
+  <div id="rturn">
+  <span id="sup"> <router-link to="/signup">Sign Up</router-link></span>
+  </div>
+  </div>
 </div>
 </template>
 
@@ -54,8 +59,9 @@ export default {
 
 <style >
 
-#firebaseui-auth-container{
-    text-align: center;
+#bx{
+
+   text-align: center;
     margin: 0 40% ;
     margin-top: -100px;
     position: fixed;
@@ -90,6 +96,18 @@ html{
 }
 input{
 width: 200px;
+}
+#sup {
+    color: white;
+    background-color: white;
+    padding: 3px;
+    margin: 10% 0;
+    width: 100px;
+}
+
+#rturn{
+    margin: 5% 0;
+    
 }
 #home{
     text-align: center;
