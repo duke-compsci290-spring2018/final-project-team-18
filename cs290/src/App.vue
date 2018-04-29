@@ -1,15 +1,37 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <login class="nav navbar-nav navbar-right"
+                    :getUser="getUser"
+                    :setUser="setUser" >
+                </login>
     <router-view/>
   </div>
 </template>
 
 <script>
+
+
+import {storageRef } from './db'
+import Login from './components/Login'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+        Login
+    }, 
+    methods: {
+        getUser () {
+            return this.user
+        },
+        setUser (user) {
+            this.user = user
+        }
+        
+    }
 }
 </script>
+
+
 
 <style>
 #app {
