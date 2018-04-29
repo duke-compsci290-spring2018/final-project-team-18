@@ -13,6 +13,19 @@
 <hr>
 
     <h1>{{title}}</h1>
+    <div class="row">
+      <div class="col-lg-3 col-md-4 col-sm-6" v-for="profile in profiles">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3>{{profile.firstname}}</h3>
+            <p>{{profile.lastname}}</p>
+            <p>{{profile.major}}</p>
+            <p>{{profile.class}}</p>
+            <p><a href="#">Read More...</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </template>
@@ -23,7 +36,13 @@ import firebase from 'firebase';
         name: "Profiles",
         data () {
           return {
-            title: "Get Advice and Tips from Others!"
+            title: "Get Advice and Tips from Others!",
+            profiles: [{
+              firstname: 'Judyth',
+              lastname: 'Estrada',
+              major: 'Computer Science',
+              class: '2020'
+            }]
           }
         },
          methods: {
