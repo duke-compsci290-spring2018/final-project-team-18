@@ -3,6 +3,8 @@
     <div id="bgq"></div>
     <div id="bx">
   <div id="firebaseui-auth-container"></div>
+   <p v-if="user"></p><p v-if-else >You don't have an account? <router-link class="link" to="/home" >Browse</router-link> 
+   <button v-on:click="refresh" type="submit" class="link">Main</button></p>
  
   </div>
 </div>
@@ -24,10 +26,17 @@ export default {
                 isAnonymous: user.isAnonymous
             })
         },
+        refresh: function (){
+    window.location.reload();
+},
         signOut () {
             firebase.auth().signOut()
             this.setUser(null)
-        }
+        },
+        signUp: function() {
+    firebase.auth().signInAnonymously();
+    
+}
   },
   mounted() {
     var uiConfig = {
@@ -37,9 +46,11 @@ export default {
       signInSuccessUrl: '/home',
       signInOptions:[{
                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                    
                     requireDisplayName: true,
-                }],
+                }]
    };
+   
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#firebaseui-auth-container', uiConfig);
     firebase.auth().onAuthStateChanged(authState => {

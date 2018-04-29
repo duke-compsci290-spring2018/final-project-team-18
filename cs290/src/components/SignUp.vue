@@ -1,10 +1,5 @@
 <template>
-<div class="sign-up">
-<p>Let's create a new account!!!</p>
-<input type="text" placeholder="Email"><br>
-<input type="password" placeholder="Password"><br>
-<button v-on:click="signUp">Sign Up</button>
-<span>or go back to <router-link to="/login">login.</router-link></span>
+<div class="signup">
 </div>
 </template>
 
@@ -13,25 +8,12 @@ import firebase from 'firebase'
 
 export default {
 name: "signUp",
-data: function () {
-return {
-email: '',
-password: ''
-}
-},
 methods: {
 signUp: function() {
-firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
-(user) => {
-this.$router.replace('home')
-},
-(err) => {
-alert("Oops. " + err.message)
+    firebase.auth().signInAnonymously();
+}}
 }
-);
-}
-}
-}
+
 </script>
 
 <style scoped>
