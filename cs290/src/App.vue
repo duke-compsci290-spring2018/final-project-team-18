@@ -1,33 +1,15 @@
 <template>
   <div id="app">
-    <login class="nav navbar-nav navbar-right"
-                    :getUser="getUser"
-                    :setUser="setUser" >
-                </login>
-    <router-view/>
+   
+   <router-view></router-view>
   </div>
 </template>
 
 <script>
 
 
-import {storageRef } from './db'
-import Login from './components/Login'
-
 export default {
-  name: 'App',
-  components: {
-        Login
-    }, 
-    methods: {
-        getUser () {
-            return this.user
-        },
-        setUser (user) {
-            this.user = user
-        }
-        
-    }
+  name: 'app',
 }
 </script>
 
