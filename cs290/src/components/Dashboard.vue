@@ -10,6 +10,14 @@
 </div>
 <div id="sp"></div>
 <hr><h1>{{title}}</h1>
+    <div class="newPost">
+      <h3>Add a New Post</h3>
+      <p>Title: </p>
+      <input type="text"/>
+      <p>Body: </p>
+      <input type="text"/>
+      <button @click="addPost">+ New Post</button>
+    </div>
     <form @submit.prevent="addPost">
       <input v-model="newPost"/>
       <button>Add</button>
@@ -25,9 +33,9 @@
 </template>
 
 <script>import firebase from 'firebase'
-import * as fb from '../db'
 
-var posts = fb.ourapp.ref('posts')
+import { ourapp } from '../db'
+var posts = ourapp.ref('posts')
 
 export default {
   name: 'Dashboard',
