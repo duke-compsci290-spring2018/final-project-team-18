@@ -17,7 +17,7 @@
 
 <div class="container">
 <p>Search profiles to find what you're looking for: </p>
-  <input class="search-wrapper">
+  <div class="search-wrapper">
     <input id="searchme" type="text" v-model="search" placeholder="Search profiles..."></input>
   </div>
   <div class="wrapper">
