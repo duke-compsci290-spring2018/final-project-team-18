@@ -1,33 +1,33 @@
+/* eslint-disable */
 <template lang="html">
   <div id="bg">
-   
     <div id="bgq"></div>
     <div id="bx">
   <div id="firebaseui-auth-container"></div>
-   <p v-if="user"></p><p v-if-else >You don't have an account? <router-link class="link" to="/home" >Browse</router-link> 
+   <p v-if="user"></p><p v-if-else >You don't have an account? <router-link class="link" to="/home" >Browse</router-link>
    <button v-on:click="refresh" type="submit" class="link">Main</button></p>
- 
+
   </div>
 </div>
 </template>
 
-<script>
+<script>/* eslint-disable */
 import firebase from 'firebase';
 import firebaseUI from 'firebaseui'
 import {config} from '../db';
 export default {
   name: 'Login',
-  
+
     created() {
     if (firebase.auth().currentUser) {
       this.isLoggedIn = true;
       this.currentUser = firebase.auth().currentUser.email;
-      
+
     }
   },
- 
+
   methods: {
-  
+
    signIn (user) {
             this.setUser({
                 name: user.displayName,
@@ -45,7 +45,7 @@ export default {
         },
         signUp: function() {
     firebase.auth().signInAnonymously();
-    
+
 },
 setUser (user) {
             this.user = user
@@ -59,23 +59,23 @@ setUser (user) {
       signInSuccessUrl: '/home',
       signInOptions:[{
                     provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
-                    
+
                     requireDisplayName: true,
                 }]
    };
-   
+
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#firebaseui-auth-container', uiConfig);
-    
+
     firebase.auth().onAuthStateChanged(authState => {
             if (authState) {
                 this.signIn(authState)
-                
-                
+
+
             }
         })
 
-                 
+
     },
 }
 
@@ -132,7 +132,6 @@ width: 170px;
 
 #rturn{
     margin: 5% 0;
-    
 }
 #firebaseui-auth-container label {
     display: block;

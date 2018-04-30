@@ -1,54 +1,68 @@
+/* eslint-disable */
 <template>
   <div class="dashboard">
-  
   <div class="nav">
   <router-link class= "link" to="/home">Home</router-link>
     <router-link class="link" to="/dashboard" >Dashboard</router-link>
     <router-link class="link" to="/profiles">Profiles</router-link>
     <router-link class="link" to="/myaccount">My Account</router-link>
     <button  v-on:click="logout">Logout</button>
-    
 </div>
 <div id="sp"></div>
-<hr> 
-    <h1>{{title}}</h1>
-
-
-
-    <!--<div class="row">
-      <div class="col-lg-3 col-md-4 col-sm-6" v-for="post in posts">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3>{{post.title}}</h3>
-            <p>{{post.body}}</p>
-            <p>{{post.area}}</p>
-            <p>{{post.user}}</p>
-            <p><a href="#">Read More...</a></p>
-          </div>
-        </div>
-      </div>
-    </div> -->
+<hr><h1>{{title}}</h1>
+    <form @submit.prevent="addPost">
+      <input v-model="newPost"/>
+      <button>Add</button>
+    </form>
+    <ul>
+      <li v-for="post in posts" :key="post">
+        <h3>{{post.title}}</h3>
+        <p>{{post.body}}</p>
+        <button @click="deletePost(post['.key'])"></button>
+      </li>
+    </ul>
   </div>
 </template>
 
-<script>
-import firebase from 'firebase';
-  export default {
-    name: "Dashboard",
-    data () {
-      return {
-        title: "Welcome to your feed!"
+<script>import firebase from 'firebase'
+import * as fb from '../db'
+
+var posts = fb.ourapp.ref('posts')
+
+export default {
+  name: 'Dashboard',
+  firebase: {
+    posts: posts
+  },
+  data () {
+    return {
+      newPost: '',
+      title: 'Welcome to your feed!',
+      posts: {}
+    }
+  },
+  methods: {
+    logout: function () {
+      firebase.auth().signOut().then(() => {
+        this.$router.replace('login')
+      })
+    },
+    addPost: function () {
+      if (this.newPost.trim()) {
+        posts.push({
+          post: {
+            title: this.newPost.title,
+            body: this.newPost.body
+          }
+        })
+        this.newPost = {}
       }
     },
-     methods: {
-          logout: function() {
-            firebase.auth().signOut().then(() => {
-              this.$router.replace('login')
-            })
-          }
-      }
-      
+    deletePost: function (key) {
+      posts.child(key).remove();
     }
+  }
+}
 </script>
 
 <style scoped>
@@ -60,10 +74,7 @@ import firebase from 'firebase';
     background-color: white;
     margin: 10px;
     border-radius: 5px;
-    
-   
- }
- 
+}
  button{
     background-color: maroon;
     border-radius: 5px;

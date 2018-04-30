@@ -1,9 +1,10 @@
+/* eslint-disable */
 <template>
 <div class="signup">
 </div>
 </template>
 
-<script>
+<script>/* eslint-disable */
 import firebase from 'firebase'
 
 export default {

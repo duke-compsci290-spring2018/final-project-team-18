@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div class="myaccount">
   <div class="nav">
@@ -6,17 +7,17 @@
     <router-link class="link" to="/profiles">Profiles</router-link>
     <router-link class="link" to="/myaccount">My Account</router-link>
     <button  v-on:click="logout">Logout</button>
-    
+
 </div>
 <div id="sp"></div>
 <hr>
     <h1>{{title}}</h1>
     <h3>{{description}}</h3>
- 
+
   </div>
 </template>
 
-<script>
+<script>/* eslint-disable */
     import firebase from 'firebase';
     export default {
         name: "MyAccount",
@@ -46,10 +47,10 @@
     background-color: white;
     margin: 10px;
     border-radius: 5px;
-    
-   
+
+
  }
- 
+
  button{
     background-color: maroon;
     border-radius: 5px;

@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 <template>
   <div class="home">
   <div class="nav">
@@ -7,20 +7,17 @@
     <router-link class="link" to="/profiles">Profiles</router-link>
     <router-link class="link" to="/myaccount">My Account</router-link>
     <button  v-on:click="logout">Logout</button>
-    
+
 </div>
 <div id="sp"></div>
 <hr>
     <h1>{{msg}}</h1>
 
     <h3>Welcome to a page made by Duke students, for Duke students.</h3>
-
-    
-
   </div>
 </template>
 
-<script>
+<script>/* eslint-disable */
   import firebase from 'firebase';
 export default {
   name: 'home',
@@ -41,7 +38,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
- 
+
  .link{
     color: maroon;
     text-decoration: none;
@@ -50,10 +47,10 @@ export default {
     background-color: white;
     margin: 10px;
     border-radius: 5px;
-    
-   
+
+
  }
- 
+
  button{
     background-color: maroon;
     border-radius: 5px;
