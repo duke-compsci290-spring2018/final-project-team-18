@@ -4,8 +4,9 @@
     <div id="bgq"></div>
     <div id="bx">
   <div id="firebaseui-auth-container"></div>
-   <p v-if="user"></p><p v-if-else >You don't have an account? <router-link class="link" to="/home" >Browse</router-link>
-   <button v-on:click="refresh" type="submit" class="link">Main</button></p>
+  
+   <p v-if="user"></p><p v-if-else >You don't have an account? <router-link class="mock" to="/signup" >Browse as Guest</router-link>
+   </p>
 
   </div>
 </div>
@@ -82,7 +83,12 @@ setUser (user) {
 </script>
 
 <style >
-
+.mock{
+    color: yellow;
+    display: block;
+    margin: 2%;
+   
+}
 #bx{
 
    text-align: center;
@@ -98,7 +104,7 @@ setUser (user) {
 
 button{
     width: 100px;
-
+    margin-bottom: 4%;
     color:black;
 }
 

@@ -1,7 +1,6 @@
-
 <template>
   <div class="profiles">
-    /* eslint-disable */
+  
   <div class="nav">
   <router-link class= "link" to="/home">Home</router-link>
     <router-link class="link" to="/dashboard" >Dashboard</router-link>
@@ -9,93 +8,168 @@
     <router-link class="link" to="/profiles">Profiles</router-link>
     <router-link class="link" to="/myaccount">My Account</router-link>
     <button  v-on:click="logout">Logout</button>
-
+   
+    
 </div>
 <div id="sp"></div>
 <hr>
-
-    <h1>{{title}}</h1>
-    <div class="row"> // eslint-disable-next-line
-      <div class="col-lg-3 col-md-4 col-sm-6" v-for="profile in profiles">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3>{{profile.firstname}}</h3>
-            <p>{{profile.lastname}}</p>
-            <p>{{profile.major}}</p>
-            <p>{{profile.class}}</p>
-            <p><a href="#">Read More...</a></p>
-            <button  v-on:click="gotData">GN</button>
-          </div>
-        </div>
-      </div>
+    
+   
+<div class="container">
+<p>Search profiles to find what you're looking for: </p>
+  <div class="search-wrapper">
+    <input id="searchme" type="text" v-model="search" placeholder="Search profiles..."/>
+  </div>
+  <div class="wrapper">
+    <div class="caption" v-for="post in filteredList">
+        
+           <h3>{{post.firstname}} {{post.lastname}}</h3>
+           
+           <div id="description">
+           <h4> Major </h4>{{post.major}}
+            <h4> Role </h4>{{post.role}}
+            <h4> Message </h4> "{{post.title}}"
+           <h4> Class of {{post.class}}</h4>
+            </div>
+            
+          <a id="b" v-bind:href="''+post.contact+''">Contact </a>
+          
     </div>
+  </div>
+</div>
+
+
+
+  
+    
   </div>
 
 </template>
 
-<script>/* eslint-disable */
+<script>
+
 import firebase from 'firebase';
+import { ourapp } from '../db'
+import VueFire from 'vuefire'
+import Vue from 'vue'
 
+Vue.use(VueFire)
+var profiles= ourapp.ref('profiles');
 
-import ourapp from '../db'
-
-
-
-
-export const usersRef = firebase.database().ref().child('name');
      export default {
         name: "Profiles",
-
-        data () {
-          return {
-            title: "Get Advice and Tips from Others!",
-            profiles: [{
-              firstname: 'Judyth',
-              lastname: 'Estrada',
-              major: 'Computer Science',
-              class: '2020',
-              contact: 'https://www.facebook.com/dania.estrada.87'
-            }]
-          }
+      
+        firebase: {
+            profiles: profiles
         },
-         methods: {
+        data () {
+            
+          return {
+            profiles: {},
+            search: ''
+        }
+         
+     },
+    computed:{
+    filteredList() {
 
-
+      return this.profiles.filter(item => {
+         return item.title.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || item.major.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || item.firstname.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || item.lastname.toLowerCase().indexOf(this.search.toLowerCase()) > -1 || item.class.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+      })
+    
+    
+    
+    }
+    
+    },
+     methods: {
+      
+    
           logout: function() {
             firebase.auth().signOut().then(() => {
               this.$router.replace('login')
             })
-          },
-          load: function () {
-         var data = {title: "Need help with CS101",
+          }
+          
 
-              firstname: 'Baerack',
-              lastname: 'Obama',
-              major: 'Political Science',
-              class: '2020',
-              contact: 'https://www.facebook.com/dania.estrada.87'
-       };
-
-firebase.database().ref('profiles').push(data);
-},
-gotData: function(){
-
-    var test = firebase.database().ref.child('profiles');
-
-    for (i = 0; i < test.length; i++) {
-    text += test[i] + "<br>";
-}
-    console.log(database);
-
-
-}
-
-      }
+        }
     }
-
+    
+   
 </script>
 
 <style scoped>
+
+
+
+#searchme{
+    width: 200px;
+}
+.container{
+    color: maroon;
+    font-size: 20px;
+}
+#b{
+    border: 0.5px solid white;
+    font-size: 10px;
+    padding: 5px;
+    color:white;
+    border-radius: 5px;
+}
+ button{
+    background-color: maroon;
+    border-radius: 5px;
+    color: white;
+ }
+
+#description{
+    font-size: 15px;
+    text-align:left;
+    margin-bottom: 10%;
+}
+h4{
+    color:yellow;
+}
+.caption{
+   border: 2px solid maroon; 
+   color: white;
+   float: left;
+   margin: 5%;
+   padding: 20px;
+   border-radius: 20px;
+   display: inline-block;
+   background-color: maroon;
+   
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+    width: 200px;
+
+}
+
+.c{
+   border: 2px solid maroon; 
+   color: white;
+   float: left;
+   margin: 5%;
+   padding: 20px;
+   border-radius: 20px;
+   display: inline-block;
+   background-color: yellow;
+   
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+    width: 200px;
+
+}
+
+
+a{
+    text-decoration: none;
+    color: yellow;
+}
+
 .link{
     color: maroon;
     text-decoration: none;
@@ -104,14 +178,15 @@ gotData: function(){
     background-color: white;
     margin: 10px;
     border-radius: 5px;
-
-
+    
+   
  }
-
- button{
+ 
+ btn{
     background-color: maroon;
     border-radius: 5px;
     color: white;
+    width: 20px;
  }
  .nav{
     height: 50px;
@@ -121,33 +196,3 @@ gotData: function(){
 
 </style>
 
-
-
-
-var todosRef = db.ref('todos')
-
-new Vue({
-  el: '#app',
-  data: {
-    newTodoText: ''
-  },
-  firebase: {
-    todos: todosRef.limitToLast(25)
-  },
-  methods: {
-    addTodo: function () {
-      if (this.newTodoText) {
-        todosRef.push({
-          text: this.newTodoText
-        })
-        this.newTodoText = ''
-      }
-    },
-    updateTodoText: function (todo, newText) {
-    	todosRef.child(todo['.key']).child('text').set(newText)
-    },
-    removeTodo: function (todo) {
-      todosRef.child(todo['.key']).remove()
-    }
-  }
-})
