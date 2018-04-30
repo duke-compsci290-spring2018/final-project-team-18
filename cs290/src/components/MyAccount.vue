@@ -18,9 +18,19 @@
     <br>
     <img src="../assets/images/profilepic.png" width="10%" alt="default profile picture"/>
     <br>
-    <button id="pfp" class="btn btn-primary">Change my picture</button>
+    
     <h3>Your email: {{email}}</h3>
-    <button @click="updateEmail">Change my email</button>
+    <button v-on:click="updateEmail">Change my email</button>
+    
+    
+    
+    <form class="form-inline" @submit.prevent="addImage">
+        
+        <div class="form-group">
+            <input type="file" class="form-control" id="files" name="files[]">
+        </div>
+        <input type="submit" class="btn btn-default"  />
+    </form>
 
   </div>
 </template>
@@ -44,14 +54,33 @@
             firebase.auth().signOut().then(() => {
               this.$router.replace('login')
             })
-          }
-      }
-    }
+          },
+          changeBackgroundImage: function () {
+            // get input element user used to select local image
+            var input = document.getElementById('files')
+            // check that all fields in the form been completed
+            if (this.newImageTitle && input.files.length > 0) {
+                this.onSubmit(this.newImageTitle, input.files[0])
+            }
+            // reset values displayed in form so user knows to input new data
+            this.newImageTitle = ''
+            input.value = ''
+        }
+    }}
 </script>
 
 <style scoped>
 
+.form-inline{
+    margin: 5%;
+    color: maroon;
+}
 
+ input{
+    background-color: maroon;
+    border-radius: 5px;
+    color: white;
+ }
 
  .link{
     color: maroon;
