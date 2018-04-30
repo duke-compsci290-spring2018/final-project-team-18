@@ -2,12 +2,12 @@
 <template>
   <div id="app">
 
-    <router-view></router-view>
+    <router-view/>
   </div>
 </template>
 
 <script>
-
+/* eslint-disable */
 import firebase from 'firebase';
 import Login from '@/components/Login'
 
