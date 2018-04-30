@@ -8,6 +8,7 @@ import Dashboard from '@/components/Dashboard'
 import Profiles from '@/components/Profiles'
 import MyAccount from '@/components/MyAccount'
 import SignUp from '@/components/SignUp'
+import Courses from '@/components/Courses'
 
 
 Vue.use(Router)
@@ -58,7 +59,12 @@ const router = new Router({
       path: '/signup',
       name: "Sign Up",
       component: SignUp
-    }
+    },
+      {
+        path: '/courses',
+        name: 'Courses',
+        component: Courses
+      }
   ]
 })
 
