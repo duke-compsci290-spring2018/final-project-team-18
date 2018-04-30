@@ -15,38 +15,38 @@
     <h1>{{title}}</h1>
     <br>
     <h3>{{description}}</h3>
-    
-    <img src="../assets/images/profilepic.png" width="10%" alt="default profile picture"/>
+
+    <img src="../assets/images/profilepic.png" width="10%" alt="default profile picture"></img>
     <br>
-    
+
     <div id="photo">
     <h3>Change Photo</h3>
-    <form class="form-inline" @submit.prevent="addImage">
+    <div class="form-inline" @submit.prevent="addImage">
         <div class="form-group">
-            <input type="file" class="form-control" id="files" name="files[]">
+          <input type="file" class="form-control" id="files" name="files[]"></input>
         </div>
-        <input type="submit" class="btn btn-default" value="Add" />
-    </form>
+      <input type="submit" class="btn btn-default" value="Add"></input>
     </div>
-    
-    
+    </div>
+
+
     <div id="email">
     <h3>Your email: {{email}}</h3>
     <button v-on:click="updateEmail">Change my email</button>
     </div>
-    
+
     <div id="admin">
     <h3>Request Admin Control</h3>
     <button v-on:click="request">Request</button>
     </div>
-    
+
     <div id="profile">
     <h3>Edit Profile</h3>
     <button v-on:click="">Edit Profile</button>
     </div>
-    
-    
-    
+
+
+
   </div>
 </template>
 
@@ -95,7 +95,7 @@
     margin: 5% 30%;
     padding: 20px;
     border-radius: 5px;
-    
+
 }
 #email{
     border: 1px solid maroon;
@@ -103,7 +103,7 @@
     padding: 20px;
     border-radius: 5px;
     overflow: hidden;
-    
+
 }
 
 #profile{
@@ -112,7 +112,7 @@
     padding: 20px;
     border-radius: 5px;
     overflow: hidden;
-    
+
 }
 
 #photo{
@@ -120,7 +120,7 @@
     margin: 5% 30%;
     padding: 20px;
     border-radius: 5px;
-    
+
 }
 
 .form-inline{
