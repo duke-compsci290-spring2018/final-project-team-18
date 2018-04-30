@@ -45,7 +45,7 @@
           <button class="btn btn-primary"><a href="https://www.cs.duke.edu/">Visit website</a></button>
         </div>
       </div>
-      <img src="../assets/images/code.jpg" width="70%"/>
+      <img src="../assets/images/code.jpg" width="70%"></img>
 
     </div>
 

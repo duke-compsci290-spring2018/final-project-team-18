@@ -15,11 +15,11 @@
       <h3>Add a New Post</h3>
       <label for="title">Title: </label>
        <br>
-      <input id="title" type="text" v-model="newPost.title"/>
+      <input id="title" type="text" v-model="newPost.title"></input>
        <br>
       <label for="body">Body: </label>
        <br>
-      <textarea id=body type="text" v-model="newPost.body"/>
+      <textarea id=body type="text" v-model="newPost.body"></textarea>
        <br>
       <button class="btn btn-primary" @click="addPost">+ New Post</button>
     </div>
