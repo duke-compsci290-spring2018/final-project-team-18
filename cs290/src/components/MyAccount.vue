@@ -15,23 +15,38 @@
     <h1>{{title}}</h1>
     <br>
     <h3>{{description}}</h3>
-    <br>
+    
     <img src="../assets/images/profilepic.png" width="10%" alt="default profile picture"/>
     <br>
     
-    <h3>Your email: {{email}}</h3>
-    <button v-on:click="updateEmail">Change my email</button>
-    
-    
-    
+    <div id="photo">
+    <h3>Change Photo</h3>
     <form class="form-inline" @submit.prevent="addImage">
-        
         <div class="form-group">
             <input type="file" class="form-control" id="files" name="files[]">
         </div>
-        <input type="submit" class="btn btn-default"  />
+        <input type="submit" class="btn btn-default" value="Add" />
     </form>
-
+    </div>
+    
+    
+    <div id="email">
+    <h3>Your email: {{email}}</h3>
+    <button v-on:click="updateEmail">Change my email</button>
+    </div>
+    
+    <div id="admin">
+    <h3>Request Admin Control</h3>
+    <button v-on:click="request">Request</button>
+    </div>
+    
+    <div id="profile">
+    <h3>Edit Profile</h3>
+    <button v-on:click="">Edit Profile</button>
+    </div>
+    
+    
+    
   </div>
 </template>
 
@@ -65,11 +80,48 @@
             // reset values displayed in form so user knows to input new data
             this.newImageTitle = ''
             input.value = ''
+        },
+        request: function () {
+            alert('Thank you for you request. An email has been sent, and we will get back to you shortly.')
         }
     }}
 </script>
 
 <style scoped>
+
+
+#admin{
+    border: 1px solid maroon;
+    margin: 5% 30%;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
+#email{
+    border: 1px solid maroon;
+    margin: 5% 30%;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+
+#profile{
+    border: 1px solid maroon;
+    margin: 5% 30%;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
+
+#photo{
+    border: 1px solid maroon;
+    margin: 5% 30%;
+    padding: 20px;
+    border-radius: 5px;
+    
+}
 
 .form-inline{
     margin: 5%;

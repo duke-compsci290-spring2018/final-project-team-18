@@ -1,7 +1,7 @@
 
 <template>
   <div class="dashboard">
-    /* eslint-disable */
+   
   <div class="nav">
   <router-link class= "link" to="/home">Home</router-link>
     <router-link class="link" to="/dashboard" >Dashboard</router-link>

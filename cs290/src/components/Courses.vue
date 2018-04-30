@@ -8,6 +8,8 @@
     <router-link class="link" to="/myaccount">My Account</router-link>
     <button class="btn btn-danger" v-on:click="logout">Logout</button>
   </div>
+  
+  <div id="courses">
     <h1>{{title}}</h1>
     <h3>{{description}}</h3>
     <div class="row">
@@ -16,11 +18,16 @@
           <h4>{{course.title}}</h4>
           <p>{{course.name}}</p>
           <p>{{course.teacher}}</p>
-          <button class="btn btn-success">View reviews!</button>
-        </div>
+          <button class="btn btn-success" v-on:click="course">View reviews!</button>
+        </div>cd 
       </div>
     </div>
     <button class="btn btn-danger">Don't see your course? Add it!</button>
+    </div>
+    
+    <div id="container">
+    <h1> No reviews for this course</h1>
+    </div>
   </div>
 </template>
 
@@ -64,11 +71,18 @@
           }
         }
       }
-    }
-  }
+    },
+    methods: {
+        
+        request: function () {
+            alert('Thank you for you request. An email has been sent, and we will get back to you shortly.')
+        }
+    }}
 </script>
 
 <style scoped>
+
+
   .link{
     color: maroon;
     text-decoration: none;
