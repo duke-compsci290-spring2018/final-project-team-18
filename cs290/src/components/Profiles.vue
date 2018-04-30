@@ -22,6 +22,7 @@
             <p>{{profile.major}}</p>
             <p>{{profile.class}}</p>
             <p><a href="#">Read More...</a></p>
+            <button  v-on:click="gotData">GN</button>
           </div>
         </div>
       </div>
@@ -32,8 +33,17 @@
 
 <script>
 import firebase from 'firebase';
-    export default {
+
+
+import ourapp from '../db'
+
+
+
+
+export const usersRef = firebase.database().ref().child('name');
+     export default {
         name: "Profiles",
+        
         data () {
           return {
             title: "Get Advice and Tips from Others!",
@@ -41,18 +51,46 @@ import firebase from 'firebase';
               firstname: 'Judyth',
               lastname: 'Estrada',
               major: 'Computer Science',
-              class: '2020'
+              class: '2020',
+              contact: 'https://www.facebook.com/dania.estrada.87'
             }]
           }
         },
          methods: {
+         
+         
           logout: function() {
             firebase.auth().signOut().then(() => {
               this.$router.replace('login')
             })
-          }
+          },
+          load: function () {
+         var data = {title: "Need help with CS101",
+         
+              firstname: 'Baerack',
+              lastname: 'Obama',
+              major: 'Political Science',
+              class: '2020',
+              contact: 'https://www.facebook.com/dania.estrada.87'
+       };
+            
+firebase.database().ref('profiles').push(data);
+},
+gotData: function(){
+    
+    var test = firebase.database().ref.child('profiles');
+
+    for (i = 0; i < test.length; i++) { 
+    text += test[i] + "<br>";
+}
+    console.log(database);
+ 
+
+}
+
       }
     }
+   
 </script>
 
 <style scoped>
@@ -80,3 +118,34 @@ import firebase from 'firebase';
  }
 
 </style>
+
+
+
+
+var todosRef = db.ref('todos')
+
+new Vue({
+  el: '#app',
+  data: {
+    newTodoText: ''
+  },
+  firebase: {
+    todos: todosRef.limitToLast(25)
+  },
+  methods: {
+    addTodo: function () {
+      if (this.newTodoText) {
+        todosRef.push({
+          text: this.newTodoText
+        })
+        this.newTodoText = ''
+      }
+    },
+    updateTodoText: function (todo, newText) {
+    	todosRef.child(todo['.key']).child('text').set(newText)
+    },
+    removeTodo: function (todo) {
+      todosRef.child(todo['.key']).remove()
+    }
+  }
+})

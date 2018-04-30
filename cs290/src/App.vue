@@ -8,6 +8,7 @@
 <script>
 
 import firebase from 'firebase';
+import Login from '@/components/Login'
 
 export default {
   name: 'app',
@@ -30,6 +31,7 @@ export default {
     getUser () {
             return this.user
         },
+     
         setUser (user) {
             this.user = user
         }

@@ -1,5 +1,6 @@
 <template lang="html">
   <div id="bg">
+   
     <div id="bgq"></div>
     <div id="bx">
   <div id="firebaseui-auth-container"></div>
@@ -16,14 +17,15 @@ import firebaseUI from 'firebaseui'
 import {config} from '../db';
 export default {
   name: 'Login',
-  data () {
-        return {
-            // state for vue-images component, must be established BEFORE component is rendered
-            email: '',
-            // useful data about the current user
-            password: ''
-        }
-    },
+  
+    created() {
+    if (firebase.auth().currentUser) {
+      this.isLoggedIn = true;
+      this.currentUser = firebase.auth().currentUser.email;
+      
+    }
+  },
+ 
   methods: {
   
    signIn (user) {
@@ -44,7 +46,10 @@ export default {
         signUp: function() {
     firebase.auth().signInAnonymously();
     
-}
+},
+setUser (user) {
+            this.user = user
+        }
   },
   mounted() {
     var uiConfig = {
@@ -61,9 +66,12 @@ export default {
    
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#firebaseui-auth-container', uiConfig);
+    
     firebase.auth().onAuthStateChanged(authState => {
             if (authState) {
                 this.signIn(authState)
+                
+                
             }
         })
 

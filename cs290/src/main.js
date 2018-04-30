@@ -9,7 +9,7 @@ import VueRouter from 'vue-router'
 import firebase from 'firebase'
 import firebaseui from 'firebaseui';
 
-import {config} from './db'
+import ourapp from './db'
 //import Login from './Login'
 Vue.use(VueRouter)
 
@@ -20,7 +20,7 @@ new Vue({
   
   router,
     created() {
-    firebase.initializeApp(config);
+   
     firebase.auth().onAuthStateChanged((user) => {
       if(user) {
         this.$router.push('/home')
