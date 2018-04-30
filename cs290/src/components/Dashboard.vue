@@ -1,52 +1,59 @@
-/* eslint-disable */
+
 <template>
   <div class="dashboard">
+    /* eslint-disable */
   <div class="nav">
   <router-link class= "link" to="/home">Home</router-link>
     <router-link class="link" to="/dashboard" >Dashboard</router-link>
     <router-link class="link" to="/profiles">Profiles</router-link>
     <router-link class="link" to="/myaccount">My Account</router-link>
-    <button  v-on:click="logout">Logout</button>
+    <button class="btn btn-danger" v-on:click="logout">Logout</button>
 </div>
-<div id="sp"></div>
 <hr><h1>{{title}}</h1>
-    <div class="newPost">
+     <div class="newPost">
       <h3>Add a New Post</h3>
-      <p>Title: </p>
-      <input type="text"/>
-      <p>Body: </p>
-      <input type="text"/>
-      <button @click="addPost">+ New Post</button>
+      <label for="title">Title: </label>
+       <br>
+      <input id="title" type="text" v-model="newPost.title"/>
+       <br>
+      <label for="body">Body: </label>
+       <br>
+      <textarea id=body type="text" v-model="newPost.body"/>
+       <br>
+      <button class="btn btn-primary" @click="addPost">+ New Post</button>
     </div>
-    <form @submit.prevent="addPost">
-      <input v-model="newPost"/>
-      <button>Add</button>
-    </form>
-    <ul>
-      <li v-for="post in posts" :key="post">
-        <h3>{{post.title}}</h3>
-        <p>{{post.body}}</p>
-        <button @click="deletePost(post['.key'])"></button>
-      </li>
-    </ul>
+    <h2>Posts made by other students like you!</h2>
+      <div class="col-lg-3 col-md-4 col-sm-6" v-for="post in posts" :key="post">
+        <div class="thumbnail">
+          <div class="caption">
+            <h3>{{post.title}}</h3>
+            <p>{{post.body}}</p>
+
+            <button class="btn btn-danger" @click="deletePost(post['.key'])">Delete</button>
+          </div>
+        </div>
+
+      </div>
   </div>
 </template>
 
 <script>import firebase from 'firebase'
 
 import { ourapp } from '../db'
-var posts = ourapp.ref('posts')
+var postsRef = ourapp.ref('posts')
 
 export default {
   name: 'Dashboard',
   firebase: {
-    posts: posts
+    posts: postsRef
   },
   data () {
     return {
-      newPost: '',
-      title: 'Welcome to your feed!',
-      posts: {}
+      newPost: {
+        title: '',
+        body: ''
+      },
+      title: 'Welcome to your feed!'
     }
   },
   methods: {
@@ -56,24 +63,19 @@ export default {
       })
     },
     addPost: function () {
-      if (this.newPost.trim()) {
-        posts.push({
-          post: {
-            title: this.newPost.title,
-            body: this.newPost.body
-          }
-        })
-        this.newPost = {}
-      }
+      postsRef.push(this.newPost);
+      this.newPost.title = '';
+      this.newPost.body = ''
     },
     deletePost: function (key) {
-      posts.child(key).remove();
+      postsRef.child(key).remove()
     }
   }
 }
 </script>
 
 <style scoped>
+
 .link{
     color: maroon;
     text-decoration: none;
@@ -84,7 +86,6 @@ export default {
     border-radius: 5px;
 }
  button{
-    background-color: maroon;
     border-radius: 5px;
     color: white;
  }
@@ -93,5 +94,12 @@ export default {
     width: 100%;
     padding: 10px;
  }
+  .newPost {
+    margin: 20px;
+  }
+
+  .newPost button {
+    margin-top: 10px;
+  }
 
 </style>

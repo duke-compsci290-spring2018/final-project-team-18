@@ -12,8 +12,13 @@
 <div id="sp"></div>
 <hr>
     <h1>{{title}}</h1>
+    <br>
     <h3>{{description}}</h3>
-    <h3>{{email}}</h3>
+    <br>
+    <img src="../assets/images/profilepic.png" width="10%" alt="default profile picture"/>
+    <br>
+    <button id="pfp" class="btn btn-primary">Change my picture</button>
+    <h3>Your email: {{email}}</h3>
     <button @click="updateEmail">Change my email</button>
 
   </div>
@@ -38,15 +43,14 @@
             firebase.auth().signOut().then(() => {
               this.$router.replace('login')
             })
-          },
-        updateEmail: function () {
-            firebase.auth
-        }
+          }
       }
     }
 </script>
 
 <style scoped>
+
+
 
  .link{
     color: maroon;
@@ -70,5 +74,7 @@
     width: 100%;
     padding: 10px;
  }
+
+
 
 </style>
