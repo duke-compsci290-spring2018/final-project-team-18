@@ -34,3 +34,13 @@ After figuring out the backend part of the website, we would move on to the fron
 Our Firebase database is located at: 
 https://cs290-62ce7.firebaseio.com/
 
+
+
+
+
+
+Reviews -- Did users like our app?
+https://youtu.be/76IpKbBwZn8
+
+
+
